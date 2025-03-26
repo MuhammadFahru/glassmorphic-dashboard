@@ -1,6 +1,6 @@
 # Glassmorphic Dashboard
 
-![Glassmorphic Dashboard Preview]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
+![Glassmorphic Dashboard Preview](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
 
 ## Overview
 
@@ -24,23 +24,23 @@ Live preview: [Glassmorphic Dashboard Demo](https://example.com)
 
 ### Desktop View
 
-![Desktop View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
+![Desktop View](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
 
 ### Desktop View Sidebar Collapsed
 
-![Desktop View Sidebar Collapsed]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop%20Sidebar%20Collapsed.png)
+![Desktop View Sidebar Collapsed](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop%20Sidebar%20Collapsed.png)
 
 ### Tablet View
 
-![Tablet View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Tablet.png)
+![Tablet View](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Tablet.png)
 
 ### Mobile View
 
-![Mobile View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile.png)
+![Mobile View](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile.png)
 
 ### Mobile View with SideBar
 
-![Mobile View with SideBar]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile%20Sidebar.png)
+![Mobile View with SideBar](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile%20Sidebar.png)
 
 ## Technologies Used
 
