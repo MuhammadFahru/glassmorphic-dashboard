@@ -8,7 +8,7 @@ A modern, fully responsive admin dashboard built with the glassmorphic design tr
 
 ## Demo
 
-Live preview: [Glassmorphic Dashboard Demo](https://example.com)
+Live preview: [Glassmorphic Dashboard Demo](https://muhammadfahru.github.io/glassmorphic-dashboard)
 
 ## Features
 
