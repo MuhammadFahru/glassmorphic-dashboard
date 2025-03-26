@@ -1,0 +1,583 @@
+/*
+ * =========================================================
+ * Glassmorphic Dashboard
+ * =========================================================
+ * 
+ * Created by Muhammad Fahru Rozi
+ * 
+ * This script provides the interactive functionality for the
+ * Glassmorphic Dashboard, handling responsive behavior, 
+ * sidebar toggling, chart rendering, and mobile optimizations.
+ * 
+ * =========================================================
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  color: white;
+}
+
+.glass {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  color: white;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .logo-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.menu-icon {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.menu-text {
+  font-size: 15px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .menu-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 30px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  z-index: 101;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 240px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 240px);
+}
+
+.main-content.expanded {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px 15px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background-color: #ff5555;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.card-title {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  color: white;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.card-trend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+
+.up {
+  color: #4ade80;
+}
+
+.down {
+  color: #f87171;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.chart-container {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.chart-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.chart-tab {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chart-tab.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.chart {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+#doughnutChart {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .chart-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    left: -20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.open {
+    width: 240px;
+    padding: 20px;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-btn {
+    right: auto;
+    left: 20px;
+    top: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chart-row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-bar {
+    max-width: 170px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .user-menu {
+    gap: 10px;
+  }
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    left: -20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.open {
+    width: 240px;
+    padding: 20px;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .toggle-btn {
+    display: none;
+  }
+}
+
+.mobile-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.search-icon {
+  display: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.mobile-search-wrapper {
+  display: none;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.expanded-search {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.expanded-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.expanded-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .search-bar {
+    display: none;
+  }
+  
+  .search-icon {
+    display: block;
+  }
+  
+  .mobile-search-wrapper.active {
+    display: block;
+  }
+  
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    left: -20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.open {
+    width: 240px;
+    padding: 20px;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .toggle-btn {
+    display: none;
+  }
+}

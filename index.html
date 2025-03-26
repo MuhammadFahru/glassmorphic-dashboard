@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A glassmorphic dashboard design using HTML, CSS, and JavaScript."
+    />
+    <meta
+      name="keywords"
+      content="glassmorphic, glassmorphism, dashboard, design, html, css, javascript"
+    />
+    <meta name="author" content="Muhammad Fahru Rozi" />
+    <title>Glassmorphic Dashboard</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+
+  </head>
+  <body>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="toggle-btn" id="toggleBtn">
+        <i class="fas fa-chevron-left" id="toggleIcon"></i>
+      </div>
+
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <div class="logo-text">GlassDash</div>
+      </div>
+
+      <div class="menu">
+        <div class="menu-item active">
+          <div class="menu-icon"><i class="fas fa-home"></i></div>
+          <div class="menu-text">Dashboard</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="menu-text">Analytics</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-icon"><i class="fas fa-users"></i></div>
+          <div class="menu-text">Customers</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-icon"><i class="fas fa-wallet"></i></div>
+          <div class="menu-text">Transactions</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-icon"><i class="fas fa-cog"></i></div>
+          <div class="menu-text">Settings</div>
+        </div>
+      </div>
+
+      <div class="menu-item" style="margin-top: auto">
+        <div class="menu-icon"><i class="fas fa-sign-out-alt"></i></div>
+        <div class="menu-text">Logout</div>
+      </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <div class="navbar">
+        <div class="left-nav" style="display: flex; align-items: center; gap: 15px;">
+          <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="search-bar">
+            <i class="fas fa-search" style="color: rgba(255, 255, 255, 0.5);"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div class="search-icon" id="searchIcon">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <div class="user-menu">
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <div class="notification-badge">3</div>
+          </div>
+          <div class="notification">
+            <i class="fas fa-envelope"></i>
+            <div class="notification-badge">5</div>
+          </div>
+          <div class="avatar">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-search-wrapper" id="mobileSearchWrapper">
+        <div class="expanded-search">
+          <i class="fas fa-search" style="color: rgba(255, 255, 255, 0.5);"></i>
+          <input type="text" placeholder="Search..." />
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Total Users</div>
+              <div class="card-value">2,845</div>
+            </div>
+            <div class="card-icon" style="background-color: rgba(59, 130, 246, 0.2); color: #3b82f6">
+              <i class="fas fa-users"></i>
+            </div>
+          </div>
+          <div class="card-trend">
+            <i class="fas fa-arrow-up up"></i>
+            <span class="up">12.8%</span>
+            <span style="color: rgba(255, 255, 255, 0.5)">this month</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Revenue</div>
+              <div class="card-value">$12,576</div>
+            </div>
+            <div class="card-icon" style="background-color: rgba(34, 197, 94, 0.2); color: #22c55e">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+          </div>
+          <div class="card-trend">
+            <i class="fas fa-arrow-up up"></i>
+            <span class="up">8.3%</span>
+            <span style="color: rgba(255, 255, 255, 0.5)">this month</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Conversion Rate</div>
+              <div class="card-value">8.9%</div>
+            </div>
+            <div class="card-icon" style="background-color: rgba(168, 85, 247, 0.2); color: #a855f7">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+          </div>
+          <div class="card-trend">
+            <i class="fas fa-arrow-down down"></i>
+            <span class="down">2.1%</span>
+            <span style="color: rgba(255, 255, 255, 0.5)">this month</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Avg. Session</div>
+              <div class="card-value">4:23</div>
+            </div>
+            <div class="card-icon" style="background-color: rgba(249, 115, 22, 0.2); color: #f97316">
+              <i class="fas fa-clock"></i>
+            </div>
+          </div>
+          <div class="card-trend">
+            <i class="fas fa-arrow-up up"></i>
+            <span class="up">1.4%</span>
+            <span style="color: rgba(255, 255, 255, 0.5)">this month</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-container">
+          <div class="chart-header">
+            <div class="chart-title">Monthly Performance</div>
+            <div class="chart-tabs">
+              <div class="chart-tab active" data-period="monthly">Monthly</div>
+              <div class="chart-tab" data-period="weekly">Weekly</div>
+              <div class="chart-tab" data-period="daily">Daily</div>
+            </div>
+          </div>
+          <div id="barChart" class="chart"></div>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-header">
+            <div class="chart-title">Revenue Sources</div>
+          </div>
+          <div id="doughnutChart" class="chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.41.0/apexcharts.min.js"></script>
+    <script src="assets/script.js"></script>
+
+  </body>
+</html>
