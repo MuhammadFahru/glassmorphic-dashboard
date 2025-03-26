@@ -1,6 +1,6 @@
 # Glassmorphic Dashboard
 
-![Glassmorphic Dashboard Preview](https://example.com/)
+![Glassmorphic Dashboard Preview]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
 
 ## Overview
 
@@ -24,23 +24,23 @@ Live preview: [Glassmorphic Dashboard Demo](https://example.com)
 
 ### Desktop View
 
-![Desktop View](https://example.com/)
+![Desktop View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop.png)
 
 ### Desktop View Sidebar Collapsed
 
-![Desktop View Sidebar Collapsed](https://example.com/)
+![Desktop View Sidebar Collapsed]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Desktop%20Sidebar%20Collapsed.png)
 
 ### Tablet View
 
-![Tablet View](https://example.com/)
+![Tablet View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Tablet.png)
 
 ### Mobile View
 
-![Mobile View](https://example.com/)
+![Mobile View]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile.png)
 
 ### Mobile View with SideBar
 
-![Mobile View with SideBar](https://example.com/)
+![Mobile View with SideBar]([https://example.com/](https://github.com/MuhammadFahru/glassmorphic-dashboard/blob/main/assets/images/Mobile%20Sidebar.png)
 
 ## Technologies Used
 
@@ -130,10 +130,6 @@ The color scheme can be adjusted by modifying the color values in style.css. The
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-Copyright © 2025 Muhammad Fahru Rozi. All rights reserved.
 
 ## Acknowledgments
 
